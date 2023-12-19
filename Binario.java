@@ -1,9 +1,10 @@
+package Projetos_Individuais;
 import java.util.Scanner;
 
 public class Binario {
 public static void main(String[] args) {
 //Declarar variáveis
-    int Resultado, num, dec = 0, power = 0;
+    int Resultado, num;
     Scanner dado = new Scanner(System.in);
 
 //Chamar Menu
@@ -13,26 +14,26 @@ public static void main(String[] args) {
         if (Resultado == 1) {
             System.out.println("Digite um número Binário:");
             num = dado.nextInt();
-            System.out.println(num);
-            while (num > 0) {
-                int temp = num%10;
-                if(temp == 0 || temp == 1){                    
-                    dec += temp*Math.pow(2, power);
-                    num = num/10;
-                    power++;
-                    System.out.println("O número é " + dec);
+            int temp = 0;
+            int dec = 0;
+            int power = 0;
+                while (num > 0) {
+                    temp = num%10;
+                    if(temp == 0 || temp == 1){                    
+                        dec += temp*Math.pow(2, power);
+                        num = num/10;
+                        power++;
+                    }
+                    else{
+                        System.out.println("Número Inválido");
+                        break;
+                    }
                 }
-                
-                else{
-                    System.out.println("Número Inválido");
-                    break;
-                }
-            }
+            System.out.println("O número é " + dec);
         }
 
         if (Resultado == 2) {
-            System.out.println("Digite um número Decimal:");
-
+            System.out.println("Digite um número Decimal:");                
         }
 
         if (Resultado == 0){
@@ -43,7 +44,7 @@ public static void main(String[] args) {
 
 public static void Menu(){
     System.out.println("-----Menu-----");
-    System.out.println("1.Transformar decimal em binário\n2.Transformar binário em decimal\n0.Sair");
+    System.out.println("1.Transformar binário em decimal\n2.Transformar decimal em binário\n0.Sair");
 }
 
 public static int verificaInt(){
