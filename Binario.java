@@ -29,11 +29,20 @@ public static void main(String[] args) {
                         break;
                     }
                 }
-            System.out.println("O número é " + dec);
+            System.out.println("O número decimal é " + dec);
         }
 
         if (Resultado == 2) {
-            System.out.println("Digite um número Decimal:");                
+            System.out.println("Digite um número Decimal:");
+            num = dado.nextInt();
+            int temp = 0;
+            int bin = 0;
+            double power = 0;
+            int sub = 0;
+            for(int i = 0; power < num; i++){
+                power = Math.pow(2, i);
+                System.out.println(power);
+            }                           
         }
 
         if (Resultado == 0){
