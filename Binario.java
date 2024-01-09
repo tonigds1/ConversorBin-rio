@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Binario {
 public static void main(String[] args) {
 //Declarar variáveis
-    int Resultado, num;
+    int Resultado;
+    double num;
     Scanner dado = new Scanner(System.in);
 
 //Chamar Menu
@@ -14,36 +15,40 @@ public static void main(String[] args) {
         if (Resultado == 1) {
             System.out.println("Digite um número Binário:");
             num = dado.nextInt();
-            int temp = 0;
+            double temp = 0;
             int dec = 0;
             int power = 0;
-                while (num > 0) {
-                    temp = num%10;
-                    if(temp == 0 || temp == 1){                    
-                        dec += temp*Math.pow(2, power);
-                        num = num/10;
-                        power++;
-                    }
-                    else{
-                        System.out.println("Número Inválido");
-                        break;
-                    }
+            while (num > 0) {
+                temp = num%10;
+                if(temp == 0 || temp == 1){                    
+                    dec += temp*Math.pow(2, power);
+                    num = num/10;
+                    power++;
                 }
+                else{
+                    System.out.println("Número Inválido");
+                    break;
+                }
+            }
             System.out.println("O número decimal é " + dec);
         }
 
         if (Resultado == 2) {
             System.out.println("Digite um número Decimal:");
-            num = dado.nextInt();
-            int temp = 0;
+            int numero = dado.nextInt();
             int bin = 0;
-            double power = 0;
-            int sub = 0;
-            for(int i = 0; power < num; i++){
-                power = Math.pow(2, i);
-                System.out.println(power);
-            }                           
+            int sub, i = 1, passo = 1;
+
+        while (numero != 0) {
+            sub = numero % 2;
+            numero /= 2;
+            bin += sub * i;
+            i *= 10;
         }
+
+        System.out.println("O número binário é " + bin);
+        
+    }
 
         if (Resultado == 0){
             break;
